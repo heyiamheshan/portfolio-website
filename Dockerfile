@@ -1,12 +1,12 @@
 # Step 1: Build the Vite app
-FROM node:18-alpine AS builder
+FROM node:18 AS builder
 WORKDIR /app
 COPY package*.json ./
-# Use 'install' to ensure all build tools are present
-RUN npm install
+# Use 'npm ci' to guarantee fresh Linux-compatible binaries are downloaded
+RUN npm ci
 COPY . .
-# Add 'npx' to ensure it finds the vite binary even if pathing is weird
-RUN npx vite build 
+# Standard build command with memory expansion in case GitHub Actions restricts it
+RUN NODE_OPTIONS=--max_old_space_size=4096 npm run build
 
 # Step 2: Serve with Nginx
 FROM nginx:stable-alpine
