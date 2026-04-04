@@ -1,12 +1,12 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "841315967125.dkr.ecr.ap-south-1.amazonaws.com/portfolio-website",
+    "Name": "REPLACE_WITH_YOUR_ECR_URI",
     "Update": "true"
   },
   "Ports": [
     {
-      "ContainerPort": 3000,
+      "ContainerPort": 80,
       "HostPort": 80
     }
   ]
