@@ -1,34 +1,19 @@
-# Stage 1: Build the Vite + React application
+# Step 1: Build the app
 FROM node:18-alpine AS builder
-
-# Set the working directory inside the container
 WORKDIR /app
-
-# Copy package.json and package-lock.json to install dependencies first
-# This helps with Docker layer caching
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
-
-# Copy the rest of your application source code
 COPY . .
-
-# Build the application for production
 RUN npm run build
 
-# Stage 2: Serve the application using Nginx
-FROM nginx:alpine
+# Step 2: Run the app
+FROM node:18-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV production
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
 
-# Copy the built assets from the builder stage
-# Vite outputs the production build to the "dist" folder
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Optional: Copy a custom Nginx configuration file if you have client-side routing
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80 to the outside world
-EXPOSE 80
-
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+CMD ["npm", "start"]
