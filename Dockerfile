@@ -4,11 +4,12 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+# This now runs without the strict tsc check
+RUN npm run build 
 
 # Step 2: Serve with Nginx
 FROM nginx:stable-alpine
-# Copy the build output from Vite (the 'dist' folder)
 COPY --from=builder /app/dist /usr/share/nginx/html
-EXPOSE 80
+# Standard port for Nginx
+EXPOSE 80 
 CMD ["nginx", "-g", "daemon off;"]
