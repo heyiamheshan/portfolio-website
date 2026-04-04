@@ -1,5 +1,5 @@
 # Step 1: Build the Vite app
-FROM node:18 AS builder
+FROM node:24 AS builder
 WORKDIR /app
 COPY package*.json ./
 # Use 'npm ci' to guarantee fresh Linux-compatible binaries are downloaded
