@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Timeline from './components/Timeline';
+import Contact from './components/Contact';
 import TerminalComponent from './components/Terminal';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Skills />
         <Projects />
         <Timeline />
+        <Contact />
       </main>
 
       <TerminalComponent />

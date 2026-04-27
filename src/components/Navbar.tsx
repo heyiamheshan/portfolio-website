@@ -43,6 +43,7 @@ export default function Navbar() {
                     <a href="#skills" style={{ textDecoration: 'none', color: 'inherit', fontWeight: 500, fontSize: '0.9rem', transition: 'color 0.3s' }}>Skills</a>
                     <a href="#projects" style={{ textDecoration: 'none', color: 'inherit', fontWeight: 500, fontSize: '0.9rem', transition: 'color 0.3s' }}>Projects</a>
                     <a href="#timeline" style={{ textDecoration: 'none', color: 'inherit', fontWeight: 500, fontSize: '0.9rem', transition: 'color 0.3s' }}>Timeline</a>
+                    <a href="#contact" style={{ textDecoration: 'none', color: 'inherit', fontWeight: 500, fontSize: '0.9rem', transition: 'color 0.3s' }}>Contact</a>
 
                     <button 
                         onClick={toggleTheme} 
