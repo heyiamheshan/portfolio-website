@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, MapPin } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
 
 export default function Contact() {
     return (
@@ -8,49 +8,95 @@ export default function Contact() {
                 I'm always open to discussing new opportunities, collaborations, or just having a chat about AI and technology.
             </p>
 
-            <div className="glass-panel" style={{ padding: '40px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
-                    
-                    {/* Email */}
-                    <a href="mailto:heshan@example.com" style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <div className="glass-chip" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '32px 16px', gap: '16px', width: '100%' }}>
-                            <div style={{ background: 'var(--accent-color)', padding: '16px', borderRadius: '50%', color: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <Mail size={24} />
-                            </div>
-                            <div style={{ textAlign: 'center' }}>
-                                <h3 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '8px' }}>Email</h3>
-                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Say hello!</p>
-                            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+                
+                {/* Email */}
+                <a href="mailto:heshan@example.com" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                    <div 
+                        className="glass-panel" 
+                        style={{ 
+                            display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 24px', gap: '20px', 
+                            height: '100%', transition: 'all 0.3s ease', cursor: 'pointer' 
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-5px)';
+                            e.currentTarget.style.borderColor = 'var(--accent-color)';
+                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(14, 165, 233, 0.2)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.borderColor = 'var(--glass-border)';
+                            e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
+                        }}
+                    >
+                        <div style={{ background: 'rgba(14, 165, 233, 0.1)', border: '1px solid rgba(14, 165, 233, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <Mail size={32} />
                         </div>
-                    </a>
-
-                    {/* LinkedIn */}
-                    <a href="https://linkedin.com/in/heshan" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <div className="glass-chip" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '32px 16px', gap: '16px', width: '100%' }}>
-                            <div style={{ background: 'var(--accent-color)', padding: '16px', borderRadius: '50%', color: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <Linkedin size={24} />
-                            </div>
-                            <div style={{ textAlign: 'center' }}>
-                                <h3 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '8px' }}>LinkedIn</h3>
-                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Let's connect!</p>
-                            </div>
+                        <div style={{ textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, marginBottom: '8px' }}>Email</h3>
+                            <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>heshan@example.com</p>
                         </div>
-                    </a>
+                    </div>
+                </a>
 
-                    {/* GitHub */}
-                    <a href="https://github.com/heyiamheshan" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <div className="glass-chip" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '32px 16px', gap: '16px', width: '100%' }}>
-                            <div style={{ background: 'var(--accent-color)', padding: '16px', borderRadius: '50%', color: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <Github size={24} />
-                            </div>
-                            <div style={{ textAlign: 'center' }}>
-                                <h3 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '8px' }}>GitHub</h3>
-                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Check my repos!</p>
-                            </div>
+                {/* LinkedIn */}
+                <a href="https://linkedin.com/in/heshan" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                    <div 
+                        className="glass-panel" 
+                        style={{ 
+                            display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 24px', gap: '20px', 
+                            height: '100%', transition: 'all 0.3s ease', cursor: 'pointer' 
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-5px)';
+                            e.currentTarget.style.borderColor = 'var(--accent-color)';
+                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(14, 165, 233, 0.2)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.borderColor = 'var(--glass-border)';
+                            e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
+                        }}
+                    >
+                        <div style={{ background: 'rgba(14, 165, 233, 0.1)', border: '1px solid rgba(14, 165, 233, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <Linkedin size={32} />
                         </div>
-                    </a>
+                        <div style={{ textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, marginBottom: '8px' }}>LinkedIn</h3>
+                            <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>Let's connect</p>
+                        </div>
+                    </div>
+                </a>
 
-                </div>
+                {/* GitHub */}
+                <a href="https://github.com/heyiamheshan" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                    <div 
+                        className="glass-panel" 
+                        style={{ 
+                            display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 24px', gap: '20px', 
+                            height: '100%', transition: 'all 0.3s ease', cursor: 'pointer' 
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-5px)';
+                            e.currentTarget.style.borderColor = 'var(--accent-color)';
+                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(14, 165, 233, 0.2)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.borderColor = 'var(--glass-border)';
+                            e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
+                        }}
+                    >
+                        <div style={{ background: 'rgba(14, 165, 233, 0.1)', border: '1px solid rgba(14, 165, 233, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <Github size={32} />
+                        </div>
+                        <div style={{ textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, marginBottom: '8px' }}>GitHub</h3>
+                            <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>Explore my code</p>
+                        </div>
+                    </div>
+                </a>
+
             </div>
         </section>
     );
