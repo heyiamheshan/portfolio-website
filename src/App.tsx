@@ -3,6 +3,7 @@ import ThreeBackground from './components/ThreeBackground';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Experience from './components/Experience';
 import Timeline from './components/Timeline';
 import Contact from './components/Contact';
 import TerminalComponent from './components/Terminal';
@@ -17,6 +18,7 @@ function App() {
         <Hero />
         <Skills />
         <Projects />
+        <Experience />
         <Timeline />
         <Contact />
       </main>
