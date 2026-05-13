@@ -1,27 +1,8 @@
 import { Moon, Sun } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Navbar() {
-    const [theme, setTheme] = useState(() => {
-        // Check localStorage first, then system preference
-        const savedTheme = localStorage.getItem('portfolio-theme');
-        if (savedTheme) {
-            return savedTheme;
-        }
-        if (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark';
-        }
-        return 'light';
-    });
-
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('portfolio-theme', theme);
-    }, [theme]);
-
-    const toggleTheme = () => {
-        setTheme(prev => prev === 'light' ? 'dark' : 'light');
-    };
+    const { theme, toggleTheme } = useTheme();
 
     return (
         <header className="glass-navbar animate-fade-in" style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 50 }}>

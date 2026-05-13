@@ -38,7 +38,15 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.45s ease, color 0.45s ease;
+}
+
+/* Smooth theme transition for common elements */
+.glass-panel,
+.glass-navbar,
+.glass-chip,
+.glass-btn {
+  transition: background 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease, color 0.45s ease;
 }
 
 /* Animations */
