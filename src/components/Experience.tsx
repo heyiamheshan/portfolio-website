@@ -2,10 +2,11 @@ import { useState } from 'react';
 
 const experiences = [
     {
+        index: "01",
         period: "2023 – Present",
         role: "Agriculture Finance Advisor",
         company: "Ceylon Green Life Plantation Company",
-        location: "Sri Lanka · Part-Time",
+        location: "Sri Lanka",
         type: "Part-Time",
         description: "Providing financial advisory services while spearheading technical initiatives to digitize plantation operations.",
         highlights: [
@@ -17,146 +18,158 @@ const experiences = [
     },
 ];
 
-const typeColor: Record<string, string> = {
-    "Full-Time": "rgba(16, 185, 129, 0.15)",
-    "Part-Time": "rgba(14, 165, 233, 0.15)",
-    "Internship": "rgba(251, 191, 36, 0.15)",
-    "Contract": "rgba(168, 85, 247, 0.15)",
-};
-
-const typeBorder: Record<string, string> = {
-    "Full-Time": "rgba(16, 185, 129, 0.4)",
-    "Part-Time": "rgba(14, 165, 233, 0.4)",
-    "Internship": "rgba(251, 191, 36, 0.4)",
-    "Contract": "rgba(168, 85, 247, 0.4)",
-};
-
-const typeText: Record<string, string> = {
-    "Full-Time": "#10b981",
-    "Part-Time": "var(--accent-color)",
-    "Internship": "#fbbf24",
-    "Contract": "#a855f7",
+const typeStyle: Record<string, { bg: string; border: string; color: string }> = {
+    "Full-Time":  { bg: "rgba(16,185,129,0.12)",  border: "rgba(16,185,129,0.4)",  color: "#10b981" },
+    "Part-Time":  { bg: "rgba(14,165,233,0.12)",  border: "rgba(14,165,233,0.4)",  color: "var(--accent-color)" },
+    "Internship": { bg: "rgba(251,191,36,0.12)",  border: "rgba(251,191,36,0.4)",  color: "#fbbf24" },
+    "Contract":   { bg: "rgba(168,85,247,0.12)",  border: "rgba(168,85,247,0.4)",  color: "#a855f7" },
 };
 
 export default function Experience() {
-    const [expanded, setExpanded] = useState<number | null>(0);
+    const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
     return (
         <section id="experience" className="section-container" style={{ paddingTop: '80px', paddingBottom: '120px' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '12px' }}>
-                Work Experience
-            </h2>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '12px' }}>Work Experience</h2>
             <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '56px', maxWidth: '600px' }}>
                 Professional roles where I applied technology and analytical thinking to real-world problems.
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
                 {experiences.map((exp, i) => {
-                    const isOpen = expanded === i;
+                    const ts = typeStyle[exp.type] ?? typeStyle["Part-Time"];
+                    const isHovered = hoveredIdx === i;
+
                     return (
                         <div
                             key={i}
                             className="glass-panel"
+                            onMouseEnter={() => setHoveredIdx(i)}
+                            onMouseLeave={() => setHoveredIdx(null)}
                             style={{
-                                padding: '0',
-                                cursor: 'pointer',
-                                transition: 'box-shadow 0.3s ease, transform 0.3s ease',
-                                ...(isOpen ? { boxShadow: '0 12px 40px rgba(14, 165, 233, 0.12)' } : {}),
+                                padding: 0,
+                                overflow: 'hidden',
+                                display: 'flex',
+                                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                                transform: isHovered ? 'translateY(-4px)' : 'translateY(0)',
+                                boxShadow: isHovered
+                                    ? '0 16px 48px rgba(14,165,233,0.15)'
+                                    : 'var(--glass-shadow)',
                             }}
-                            onClick={() => setExpanded(isOpen ? null : i)}
                         >
-                            {/* Header row */}
+                            {/* Left accent bar */}
+                            <div style={{
+                                width: '5px',
+                                flexShrink: 0,
+                                background: `linear-gradient(180deg, var(--accent-color), transparent)`,
+                                opacity: isHovered ? 1 : 0.5,
+                                transition: 'opacity 0.3s ease',
+                            }} />
+
+                            {/* Card body */}
                             <div style={{
                                 display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                padding: '28px 32px',
-                                gap: '16px',
+                                flex: 1,
                                 flexWrap: 'wrap',
+                                gap: '0',
                             }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap', flex: 1 }}>
-                                    {/* Accent dot */}
-                                    <div style={{
-                                        width: '14px',
-                                        height: '14px',
-                                        borderRadius: '50%',
-                                        background: 'var(--accent-color)',
-                                        boxShadow: '0 0 10px var(--accent-color)',
-                                        flexShrink: 0,
-                                    }} />
+                                {/* ── Left panel: identity info ── */}
+                                <div style={{
+                                    flex: '0 0 280px',
+                                    padding: '36px 32px',
+                                    borderRight: '1px solid var(--glass-border)',
+                                    position: 'relative',
+                                    overflow: 'hidden',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'space-between',
+                                    gap: '24px',
+                                }}>
+                                    {/* Large faint index */}
+                                    <span style={{
+                                        position: 'absolute',
+                                        top: '-10px',
+                                        right: '16px',
+                                        fontSize: '6rem',
+                                        fontWeight: 900,
+                                        color: 'var(--accent-color)',
+                                        opacity: 0.06,
+                                        lineHeight: 1,
+                                        fontFamily: 'JetBrains Mono, monospace',
+                                        userSelect: 'none',
+                                        pointerEvents: 'none',
+                                    }}>
+                                        {exp.index}
+                                    </span>
 
                                     <div>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '4px' }}>
-                                            <h3 style={{ fontSize: '1.2rem', fontWeight: 700 }}>{exp.role}</h3>
-                                            <span style={{
-                                                fontSize: '0.75rem',
-                                                fontWeight: 600,
-                                                padding: '3px 10px',
-                                                borderRadius: '20px',
-                                                background: typeColor[exp.type] ?? 'rgba(14,165,233,0.15)',
-                                                border: `1px solid ${typeBorder[exp.type] ?? 'rgba(14,165,233,0.4)'}`,
-                                                color: typeText[exp.type] ?? 'var(--accent-color)',
-                                                letterSpacing: '0.5px',
-                                            }}>
-                                                {exp.type}
-                                            </span>
-                                        </div>
-                                        <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-                                            {exp.company} &nbsp;·&nbsp; {exp.location}
+                                        {/* Type badge */}
+                                        <span style={{
+                                            display: 'inline-block',
+                                            fontSize: '0.72rem',
+                                            fontWeight: 700,
+                                            letterSpacing: '1px',
+                                            textTransform: 'uppercase',
+                                            padding: '4px 12px',
+                                            borderRadius: '20px',
+                                            background: ts.bg,
+                                            border: `1px solid ${ts.border}`,
+                                            color: ts.color,
+                                            marginBottom: '16px',
+                                        }}>
+                                            {exp.type}
+                                        </span>
+
+                                        <h3 style={{ fontSize: '1.2rem', fontWeight: 800, lineHeight: 1.3, marginBottom: '8px' }}>
+                                            {exp.role}
+                                        </h3>
+                                        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', fontWeight: 500, lineHeight: 1.5 }}>
+                                            {exp.company}
                                         </p>
                                     </div>
-                                </div>
 
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                                    <span className="font-mono text-accent" style={{ fontSize: '0.85rem', fontWeight: 600, whiteSpace: 'nowrap' }}>
-                                        {exp.period}
-                                    </span>
-                                    <div style={{
-                                        width: '28px',
-                                        height: '28px',
-                                        borderRadius: '50%',
-                                        border: '1px solid var(--glass-border)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        transition: 'transform 0.3s ease',
-                                        transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                                        flexShrink: 0,
-                                    }}>
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                            <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                                        <span className="font-mono text-accent" style={{ fontSize: '0.82rem', fontWeight: 600 }}>
+                                            {exp.period}
+                                        </span>
+                                        <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+                                            📍 {exp.location}
+                                        </span>
                                     </div>
                                 </div>
-                            </div>
 
-                            {/* Expandable body */}
-                            <div style={{
-                                overflow: 'hidden',
-                                maxHeight: isOpen ? '600px' : '0',
-                                transition: 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                            }}>
+                                {/* ── Right panel: details ── */}
                                 <div style={{
-                                    padding: '0 32px 28px 32px',
-                                    borderTop: '1px solid var(--glass-border)',
-                                    paddingTop: '24px',
+                                    flex: '1 1 320px',
+                                    padding: '36px 36px',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '20px',
                                 }}>
-                                    <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '20px' }}>
+                                    <p style={{ color: 'var(--text-secondary)', lineHeight: 1.75, fontSize: '0.97rem' }}>
                                         {exp.description}
                                     </p>
 
-                                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
+                                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                         {exp.highlights.map((h, j) => (
-                                            <li key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'var(--text-primary)', opacity: 0.85, lineHeight: 1.6 }}>
-                                                <span className="text-accent" style={{ marginTop: '4px', flexShrink: 0, fontSize: '0.75rem' }}>▸</span>
-                                                {h}
+                                            <li key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', lineHeight: 1.65, fontSize: '0.95rem' }}>
+                                                <span style={{
+                                                    marginTop: '5px',
+                                                    width: '7px',
+                                                    height: '7px',
+                                                    borderRadius: '50%',
+                                                    background: 'var(--accent-color)',
+                                                    flexShrink: 0,
+                                                    boxShadow: '0 0 6px var(--accent-color)',
+                                                }} />
+                                                <span style={{ color: 'var(--text-primary)', opacity: 0.87 }}>{h}</span>
                                             </li>
                                         ))}
                                     </ul>
 
-                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto', paddingTop: '4px' }}>
                                         {exp.tags.map((tag, k) => (
-                                            <span key={k} className="glass-chip" style={{ fontSize: '0.8rem' }}>{tag}</span>
+                                            <span key={k} className="glass-chip" style={{ fontSize: '0.78rem' }}>{tag}</span>
                                         ))}
                                     </div>
                                 </div>
