@@ -28,7 +28,12 @@ export default function Hero() {
                 </p>
 
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}>
-                    <a href="#" className="glass-btn primary" title="Download CV">
+                    <a
+                        href="/heshan-cv.pdf"
+                        download="Heshan_Pramuditha_CV.pdf"
+                        className="glass-btn primary"
+                        title="Download CV"
+                    >
                         <Download size={20} /> Download CV
                     </a>
                     <a href="#projects" className="glass-btn">
