@@ -68,14 +68,14 @@ export default function ThreeBackground() {
     
     window.addEventListener('mousemove', onDocumentMouseMove);
     
-    const clock = new THREE.Clock();
+    const startTime = performance.now();
     let animationFrameId: number;
 
     const animate = () => {
       targetX = mouseX;
       targetY = mouseY;
-      
-      const elapsedTime = clock.getElapsedTime();
+
+      const elapsedTime = (performance.now() - startTime) / 1000;
       
       particlesMesh.rotation.y += 0.0005;
       particlesMesh.rotation.x += 0.0002;
