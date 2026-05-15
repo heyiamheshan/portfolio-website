@@ -26,7 +26,7 @@ export default function FloatingThemeToggle() {
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 boxShadow: hovered
-                    ? '0 8px 32px rgba(14, 165, 233, 0.25), 0 0 0 4px rgba(14, 165, 233, 0.08)'
+                    ? '0 8px 32px rgba(0, 113, 227, 0.22), 0 0 0 4px rgba(0, 113, 227, 0.08)'
                     : 'var(--glass-shadow)',
                 cursor: 'pointer',
                 display: 'flex',
@@ -34,7 +34,7 @@ export default function FloatingThemeToggle() {
                 justifyContent: 'center',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 transform: hovered ? 'translateY(-3px) scale(1.08)' : 'translateY(0) scale(1)',
-                color: theme === 'light' ? '#f59e0b' : '#38bdf8',
+                color: theme === 'light' ? '#f59e0b' : '#2997ff',
             }}
         >
             <div style={{

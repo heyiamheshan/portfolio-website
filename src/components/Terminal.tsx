@@ -75,7 +75,7 @@ export default function TerminalComponent() {
             {/* Body */}
             <div className="font-mono" style={{ padding: '16px', flex: 1, overflowY: 'auto', fontSize: '0.85rem', lineHeight: 1.5, color: '#f8fafc', background: 'rgba(15, 23, 42, 0.85)' }}>
                 {history.map((cmd, i) => (
-                    <div key={i} style={{ marginBottom: '6px', color: cmd.type === 'err' ? '#ef4444' : cmd.type === 'user' ? '#38bdf8' : cmd.type === 'link' ? '#4ade80' : '#cbd5e1' }}>
+                    <div key={i} style={{ marginBottom: '6px', color: cmd.type === 'err' ? '#ef4444' : cmd.type === 'user' ? '#2997ff' : cmd.type === 'link' ? '#4ade80' : '#cbd5e1' }}>
                         {cmd.text}
                     </div>
                 ))}
@@ -84,7 +84,7 @@ export default function TerminalComponent() {
 
             {/* Input Form */}
             <form onSubmit={handleCommand} style={{ background: 'rgba(15, 23, 42, 0.95)', padding: '12px 16px', display: 'flex', gap: '8px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-                <span className="font-mono" style={{ color: '#38bdf8', fontSize: '0.85rem' }}>$</span>
+                <span className="font-mono" style={{ color: '#2997ff', fontSize: '0.85rem' }}>$</span>
                 <input
                     type="text"
                     value={input}

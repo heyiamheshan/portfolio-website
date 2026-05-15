@@ -9,9 +9,9 @@ export default function ThreeBackground() {
     
     // Extract CSS variables for theme-aware colors
     const style = getComputedStyle(document.documentElement);
-    const accentColor = style.getPropertyValue('--accent-color').trim() || '#0ea5e9';
+    const accentColor = style.getPropertyValue('--accent-color').trim() || '#0071e3';
     // Clean up color string for Three.js
-    const colorHex = parseInt(accentColor.replace('#', ''), 16) || 0x0ea5e9;
+    const colorHex = parseInt(accentColor.replace('#', ''), 16) || 0x0071e3;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -115,8 +115,8 @@ export default function ThreeBackground() {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === 'data-theme') {
           const newStyle = getComputedStyle(document.documentElement);
-          const newAccentColor = newStyle.getPropertyValue('--accent-color').trim() || '#0ea5e9';
-          const newColorHex = parseInt(newAccentColor.replace('#', ''), 16) || 0x0ea5e9;
+          const newAccentColor = newStyle.getPropertyValue('--accent-color').trim() || '#0071e3';
+          const newColorHex = parseInt(newAccentColor.replace('#', ''), 16) || 0x0071e3;
           material.color.setHex(newColorHex);
           linesMaterial.color.setHex(newColorHex);
         }

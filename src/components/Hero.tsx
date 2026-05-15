@@ -44,7 +44,7 @@ export default function Hero() {
                 {/* GitHub Live Integration */}
                 <a href="https://github.com/heyiamheshan" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', display: 'inline-block' }}>
                     <div className="glass-panel" style={{ padding: '16px 24px', display: 'flex', alignItems: 'center', gap: '20px', transition: 'all 0.3s' }}>
-                        <div style={{ padding: '10px', background: 'rgba(14, 165, 233, 0.1)', borderRadius: '12px', color: 'var(--accent-color)' }}>
+                        <div style={{ padding: '10px', background: 'rgba(0, 113, 227, 0.1)', borderRadius: '12px', color: 'var(--accent-color)' }}>
                             <FiGithub size={24} />
                         </div>
                         <div>

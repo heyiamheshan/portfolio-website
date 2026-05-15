@@ -21,7 +21,7 @@ export default function Contact() {
                         onMouseEnter={(e) => {
                             e.currentTarget.style.transform = 'translateY(-5px)';
                             e.currentTarget.style.borderColor = 'var(--accent-color)';
-                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(14, 165, 233, 0.2)';
+                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 113, 227, 0.2)';
                         }}
                         onMouseLeave={(e) => {
                             e.currentTarget.style.transform = 'translateY(0)';
@@ -29,7 +29,7 @@ export default function Contact() {
                             e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
                         }}
                     >
-                        <div style={{ background: 'rgba(14, 165, 233, 0.1)', border: '1px solid rgba(14, 165, 233, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <div style={{ background: 'rgba(0, 113, 227, 0.1)', border: '1px solid rgba(0, 113, 227, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <Mail size={32} />
                         </div>
                         <div style={{ textAlign: 'center' }}>
@@ -50,7 +50,7 @@ export default function Contact() {
                         onMouseEnter={(e) => {
                             e.currentTarget.style.transform = 'translateY(-5px)';
                             e.currentTarget.style.borderColor = 'var(--accent-color)';
-                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(14, 165, 233, 0.2)';
+                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 113, 227, 0.2)';
                         }}
                         onMouseLeave={(e) => {
                             e.currentTarget.style.transform = 'translateY(0)';
@@ -58,7 +58,7 @@ export default function Contact() {
                             e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
                         }}
                     >
-                        <div style={{ background: 'rgba(14, 165, 233, 0.1)', border: '1px solid rgba(14, 165, 233, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <div style={{ background: 'rgba(0, 113, 227, 0.1)', border: '1px solid rgba(0, 113, 227, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <Linkedin size={32} />
                         </div>
                         <div style={{ textAlign: 'center' }}>
@@ -79,7 +79,7 @@ export default function Contact() {
                         onMouseEnter={(e) => {
                             e.currentTarget.style.transform = 'translateY(-5px)';
                             e.currentTarget.style.borderColor = 'var(--accent-color)';
-                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(14, 165, 233, 0.2)';
+                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 113, 227, 0.2)';
                         }}
                         onMouseLeave={(e) => {
                             e.currentTarget.style.transform = 'translateY(0)';
@@ -87,7 +87,7 @@ export default function Contact() {
                             e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
                         }}
                     >
-                        <div style={{ background: 'rgba(14, 165, 233, 0.1)', border: '1px solid rgba(14, 165, 233, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <div style={{ background: 'rgba(0, 113, 227, 0.1)', border: '1px solid rgba(0, 113, 227, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <Github size={32} />
                         </div>
                         <div style={{ textAlign: 'center' }}>
