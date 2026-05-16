@@ -89,7 +89,7 @@ export default function Contact() {
                         }}
                     >
                         <div style={{ background: 'rgba(0, 113, 227, 0.1)', border: '1px solid rgba(0, 113, 227, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <Github size={32} />
+                            <FiGithub size={32} />
                         </div>
                         <div style={{ textAlign: 'center' }}>
                             <h3 style={{ fontSize: '1.4rem', fontWeight: 600, marginBottom: '8px' }}>GitHub</h3>
