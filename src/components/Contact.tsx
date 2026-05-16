@@ -1,4 +1,5 @@
-import { Mail, Linkedin, Github } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { FiLinkedin, FiGithub } from 'react-icons/fi';
 
 export default function Contact() {
     return (
@@ -59,7 +60,7 @@ export default function Contact() {
                         }}
                     >
                         <div style={{ background: 'rgba(0, 113, 227, 0.1)', border: '1px solid rgba(0, 113, 227, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <Linkedin size={32} />
+                            <FiLinkedin size={32} />
                         </div>
                         <div style={{ textAlign: 'center' }}>
                             <h3 style={{ fontSize: '1.4rem', fontWeight: 600, marginBottom: '8px' }}>LinkedIn</h3>
