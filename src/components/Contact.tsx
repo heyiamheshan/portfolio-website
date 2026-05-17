@@ -1,103 +1,80 @@
 import { Mail } from 'lucide-react';
 import { FiLinkedin, FiGithub } from 'react-icons/fi';
 
+const links = [
+    {
+        icon: <Mail size={24} />,
+        label: 'Email',
+        value: 'heshan@example.com',
+        href: 'mailto:heshan@example.com',
+        color: '#0071e3',
+    },
+    {
+        icon: <FiLinkedin size={24} />,
+        label: 'LinkedIn',
+        value: 'Connect with me',
+        href: 'https://linkedin.com/in/heshan',
+        color: '#0a66c2',
+    },
+    {
+        icon: <FiGithub size={24} />,
+        label: 'GitHub',
+        value: 'heyiamheshan',
+        href: 'https://github.com/heyiamheshan',
+        color: '#1d1d1f',
+    },
+];
+
 export default function Contact() {
     return (
-        <section id="contact" className="section-container" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '12px' }}>Get In Touch</h2>
-            <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '48px', maxWidth: '600px' }}>
-                I'm always open to discussing new opportunities, collaborations, or just having a chat about AI and technology.
-            </p>
+        <section id="contact" style={{ background: 'var(--bg-alt)' }}>
+            <div className="section-container">
+                <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+                    <p className="eyebrow" style={{ marginBottom: '12px' }}>Contact</p>
+                    <h2 className="section-title" style={{ marginBottom: '16px' }}>Get In Touch</h2>
+                    <p className="section-subtitle" style={{ margin: '0 auto' }}>
+                        Open to new opportunities, collaborations, and conversations about AI.
+                    </p>
+                </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
-                
-                {/* Email */}
-                <a href="mailto:heshan@example.com" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-                    <div 
-                        className="glass-panel" 
-                        style={{ 
-                            display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 24px', gap: '20px', 
-                            height: '100%', transition: 'all 0.3s ease', cursor: 'pointer' 
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'translateY(-5px)';
-                            e.currentTarget.style.borderColor = 'var(--accent-color)';
-                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 113, 227, 0.2)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'translateY(0)';
-                            e.currentTarget.style.borderColor = 'var(--glass-border)';
-                            e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
-                        }}
-                    >
-                        <div style={{ background: 'rgba(0, 113, 227, 0.1)', border: '1px solid rgba(0, 113, 227, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <Mail size={32} />
-                        </div>
-                        <div style={{ textAlign: 'center' }}>
-                            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, marginBottom: '8px' }}>Email</h3>
-                            <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>heshan@example.com</p>
-                        </div>
-                    </div>
-                </a>
-
-                {/* LinkedIn */}
-                <a href="https://linkedin.com/in/heshan" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-                    <div 
-                        className="glass-panel" 
-                        style={{ 
-                            display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 24px', gap: '20px', 
-                            height: '100%', transition: 'all 0.3s ease', cursor: 'pointer' 
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'translateY(-5px)';
-                            e.currentTarget.style.borderColor = 'var(--accent-color)';
-                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 113, 227, 0.2)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'translateY(0)';
-                            e.currentTarget.style.borderColor = 'var(--glass-border)';
-                            e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
-                        }}
-                    >
-                        <div style={{ background: 'rgba(0, 113, 227, 0.1)', border: '1px solid rgba(0, 113, 227, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <FiLinkedin size={32} />
-                        </div>
-                        <div style={{ textAlign: 'center' }}>
-                            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, marginBottom: '8px' }}>LinkedIn</h3>
-                            <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>Let's connect</p>
-                        </div>
-                    </div>
-                </a>
-
-                {/* GitHub */}
-                <a href="https://github.com/heyiamheshan" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-                    <div 
-                        className="glass-panel" 
-                        style={{ 
-                            display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 24px', gap: '20px', 
-                            height: '100%', transition: 'all 0.3s ease', cursor: 'pointer' 
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'translateY(-5px)';
-                            e.currentTarget.style.borderColor = 'var(--accent-color)';
-                            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 113, 227, 0.2)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'translateY(0)';
-                            e.currentTarget.style.borderColor = 'var(--glass-border)';
-                            e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
-                        }}
-                    >
-                        <div style={{ background: 'rgba(0, 113, 227, 0.1)', border: '1px solid rgba(0, 113, 227, 0.3)', padding: '20px', borderRadius: '50%', color: 'var(--accent-color)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <FiGithub size={32} />
-                        </div>
-                        <div style={{ textAlign: 'center' }}>
-                            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, marginBottom: '8px' }}>GitHub</h3>
-                            <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>Explore my code</p>
-                        </div>
-                    </div>
-                </a>
-
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', maxWidth: '860px', margin: '0 auto' }}>
+                    {links.map(({ icon, label, value, href, color }) => (
+                        <a key={label} href={href} target={href.startsWith('mailto') ? undefined : '_blank'} rel="noreferrer"
+                            style={{ textDecoration: 'none', display: 'block' }}>
+                            <div style={{
+                                background: '#ffffff',
+                                borderRadius: '20px',
+                                border: '1px solid var(--border-color)',
+                                padding: '32px 28px',
+                                display: 'flex', flexDirection: 'column', gap: '16px',
+                                transition: 'box-shadow 0.25s, transform 0.25s',
+                                cursor: 'pointer',
+                            }}
+                                onMouseEnter={e => {
+                                    (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+                                    (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-4px)';
+                                }}
+                                onMouseLeave={e => {
+                                    (e.currentTarget as HTMLDivElement).style.boxShadow = 'none';
+                                    (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
+                                }}
+                            >
+                                <div style={{
+                                    width: '48px', height: '48px', borderRadius: '12px',
+                                    background: `${color}14`,
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    color,
+                                }}>
+                                    {icon}
+                                </div>
+                                <div>
+                                    <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>{label}</div>
+                                    <div style={{ fontSize: '1rem', fontWeight: 500, color: 'var(--text-primary)' }}>{value}</div>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                </div>
             </div>
         </section>
     );

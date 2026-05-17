@@ -1,67 +1,92 @@
-import { FiGithub } from 'react-icons/fi';
+import { FiGithub, FiExternalLink } from 'react-icons/fi';
+
+const projects = [
+    {
+        tag: 'Computer Vision · LLM · RAG',
+        title: 'SOLIX.AI',
+        desc: 'AI-Powered Solar Energy Feasibility System',
+        detail: 'Engineered a custom dataset of Sri Lankan satellite imagery to fine-tune YOLOv8, achieving 80% mAP for precise rooftop segmentation. Architected a RAG pipeline using LangChain and ChromaDB to ground LLM responses in technical CEB documentation.',
+        stack: ['Python', 'PyTorch', 'YOLOv8', 'LangChain', 'Gemini Pro', 'ChromaDB', 'FastAPI'],
+        link: 'https://github.com/heyiamheshan',
+        color: '#0071e3',
+    },
+    {
+        tag: 'Voice AI · ASR · LLM',
+        title: 'MediAgent SL',
+        desc: 'Voice-Enabled Medical AI Assistant',
+        detail: 'Built a low-latency medical Q&A system using RAG and Groq LPU acceleration for rapid document retrieval. Integrated Faster-Whisper (ASR) and Edge-TTS for real-time, bi-directional voice communication.',
+        stack: ['Python', 'LLaMA-3', 'LangChain', 'RAG', 'Faster-Whisper', 'Streamlit'],
+        link: 'https://github.com/heyiamheshan',
+        color: '#34c759',
+    },
+];
 
 export default function Projects() {
-    const projects = [
-        {
-            title: "SOLIX.AI",
-            role: "End-to-End AI Developer",
-            desc: "AI-Powered Solar Energy Feasibility System",
-            stack: ["Python", "PyTorch", "YOLOv8", "LangChain", "RAG (Gemini Pro)", "ChromaDB", "FastAPI"],
-            highlights: [
-                "Engineered a custom dataset of Sri Lankan satellite imagery to fine-tune YOLOv8, achieving 80% mAP for precise rooftop segmentation.",
-                "Architected a Retrieval-Augmented Generation pipeline using LangChain and ChromaDB to ground LLM responses in technical CEB documentation."
-            ],
-            link: "https://github.com/heyiamheshan"
-        },
-        {
-            title: "MediAgent SL",
-            role: "End-to-End AI Developer",
-            desc: "Voice-Enabled Medical AI Assistant",
-            stack: ["Python", "LLaMA-3 (Groq)", "LangChain", "RAG", "Faster-Whisper", "Streamlit"],
-            highlights: [
-                "System Design: Built a low-latency medical Q&A system using RAG and Groq LPU acceleration for rapid document retrieval.",
-                "Multimodal Interaction: Integrated Faster-Whisper (ASR) and Edge-TTS for real-time, bi-directional voice communication."
-            ],
-            link: "https://github.com/heyiamheshan"
-        }
-    ];
-
     return (
-        <section id="projects" className="section-container" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '12px' }}>Featured Research & Development</h2>
-            <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '48px', maxWidth: '600px' }}>
-                Highlighting high-end engineering case studies and structurally robust ML pipelines.
-            </p>
+        <section id="projects" style={{ background: 'var(--bg-color)' }}>
+            <div className="section-container">
+                <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+                    <p className="eyebrow" style={{ marginBottom: '12px' }}>Work</p>
+                    <h2 className="section-title" style={{ marginBottom: '16px' }}>Featured Projects</h2>
+                    <p className="section-subtitle" style={{ margin: '0 auto' }}>
+                        End-to-end AI engineering case studies built for real-world impact.
+                    </p>
+                </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-                {projects.map((proj, idx) => (
-                    <div key={idx} className="glass-panel" style={{ padding: '40px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                    {projects.map((p, i) => (
+                        <div key={i} style={{
+                            background: 'var(--bg-alt)',
+                            borderRadius: '24px',
+                            border: '1px solid var(--border-color)',
+                            padding: '48px',
+                            display: 'grid',
+                            gridTemplateColumns: '1fr 1fr',
+                            gap: '48px',
+                            alignItems: 'center',
+                            transition: 'box-shadow 0.25s',
+                        }}
+                            onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 40px rgba(0,0,0,0.08)'}
+                            onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.boxShadow = 'none'}
+                        >
+                            {/* Left */}
                             <div>
-                                <h3 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px' }}>{proj.title}</h3>
-                                <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', fontWeight: 500 }}>{proj.desc} | <span className="text-accent">{proj.role}</span></p>
+                                <span style={{
+                                    fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.06em',
+                                    textTransform: 'uppercase', color: p.color,
+                                    background: `${p.color}14`, padding: '4px 12px',
+                                    borderRadius: '980px', display: 'inline-block', marginBottom: '20px',
+                                }}>{p.tag}</span>
+
+                                <h3 style={{ fontSize: '2.4rem', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '8px', color: 'var(--text-primary)' }}>
+                                    {p.title}
+                                </h3>
+                                <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', marginBottom: '24px' }}>
+                                    {p.desc}
+                                </p>
+
+                                <div style={{ display: 'flex', gap: '10px' }}>
+                                    <a href={p.link} target="_blank" rel="noreferrer" className="glass-btn primary" style={{ fontSize: '0.85rem', padding: '8px 18px' }}>
+                                        <FiGithub size={14} /> GitHub
+                                    </a>
+                                    <a href={p.link} target="_blank" rel="noreferrer" className="glass-btn" style={{ fontSize: '0.85rem', padding: '8px 18px' }}>
+                                        <FiExternalLink size={14} /> Live
+                                    </a>
+                                </div>
                             </div>
-                            <div style={{ display: 'flex', gap: '12px' }}>
-                                <a href={proj.link} target="_blank" rel="noreferrer" className="glass-btn" style={{ padding: '8px 16px', fontSize: '0.9rem' }}>
-                                    <FiGithub size={16} /> GitHub
-                                </a>
+
+                            {/* Right */}
+                            <div>
+                                <p style={{ fontSize: '0.97rem', color: 'var(--text-secondary)', lineHeight: 1.75, marginBottom: '24px' }}>
+                                    {p.detail}
+                                </p>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                                    {p.stack.map(s => <span key={s} className="glass-chip" style={{ fontSize: '0.78rem' }}>{s}</span>)}
+                                </div>
                             </div>
                         </div>
-
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                            {proj.stack.map(s => <span key={s} className="glass-chip" style={{ fontSize: '0.8rem', padding: '4px 10px' }}>{s}</span>)}
-                        </div>
-
-                        <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                            {proj.highlights.map((point, i) => (
-                                <li key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', color: 'var(--text-primary)', lineHeight: 1.6, fontSize: '0.95rem' }}>
-                                    <div style={{ background: 'var(--accent-color)', width: '6px', height: '6px', borderRadius: '50%', marginTop: '10px', flexShrink: 0 }}></div>
-                                    <span style={{ opacity: 0.85 }}>{point}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </section>
     );
