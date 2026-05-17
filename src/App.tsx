@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import ThreeBackground from './components/ThreeBackground';
 import Hero from './components/Hero';
@@ -7,25 +8,46 @@ import Experience from './components/Experience';
 import Timeline from './components/Timeline';
 import Contact from './components/Contact';
 import TerminalComponent from './components/Terminal';
+import ScrollProgress from './components/ScrollProgress';
+import BackToTop from './components/BackToTop';
 
 function App() {
-  return (
-    <>
-      <ThreeBackground />
-      <Navbar />
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            entries => entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            }),
+            { threshold: 0.08 }
+        );
+        document.querySelectorAll('.section-container').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+        return () => observer.disconnect();
+    }, []);
 
-      <main style={{ position: 'relative', zIndex: 1 }}>
-        <Hero />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Timeline />
-        <Contact />
-      </main>
+    return (
+        <>
+            <ScrollProgress />
+            <ThreeBackground />
+            <Navbar />
 
-      <TerminalComponent />
-    </>
-  );
+            <main style={{ position: 'relative', zIndex: 1 }}>
+                <Hero />
+                <Skills />
+                <Projects />
+                <Experience />
+                <Timeline />
+                <Contact />
+            </main>
+
+            <TerminalComponent />
+            <BackToTop />
+        </>
+    );
 }
 
 export default App;
