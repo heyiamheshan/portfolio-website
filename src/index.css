@@ -13,17 +13,6 @@
   --network-dot-color: rgba(0, 113, 227, 0.35);
 }
 
-[data-theme='dark'] {
-  --bg-color: #000000;
-  --text-primary: #f5f5f7;
-  --text-secondary: #86868b;
-  --accent-color: #2997ff;
-  --glass-bg: rgba(29, 29, 31, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.45);
-  --network-line-color: rgba(41, 151, 255, 0.1);
-  --network-dot-color: rgba(41, 151, 255, 0.28);
-}
 
 * {
   box-sizing: border-box;
@@ -37,18 +26,10 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
-  transition: background-color 0.45s ease, color 0.45s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth theme transition for common elements */
-.glass-panel,
-.glass-navbar,
-.glass-chip,
-.glass-btn {
-  transition: background 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease, color 0.45s ease;
-}
 
 /* Animations */
 @keyframes fadeIn {
@@ -91,9 +72,6 @@ body {
   pointer-events: none;
 }
 
-[data-theme='dark'] .glass-panel::before {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 50%);
-}
 
 .glass-navbar {
   background: var(--glass-bg);

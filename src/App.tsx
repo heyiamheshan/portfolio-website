@@ -1,4 +1,3 @@
-import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import ThreeBackground from './components/ThreeBackground';
 import Hero from './components/Hero';
@@ -8,11 +7,10 @@ import Experience from './components/Experience';
 import Timeline from './components/Timeline';
 import Contact from './components/Contact';
 import TerminalComponent from './components/Terminal';
-import FloatingThemeToggle from './components/FloatingThemeToggle';
 
 function App() {
   return (
-    <ThemeProvider>
+    <>
       <ThreeBackground />
       <Navbar />
 
@@ -26,8 +24,7 @@ function App() {
       </main>
 
       <TerminalComponent />
-      <FloatingThemeToggle />
-    </ThemeProvider>
+    </>
   );
 }
 
