@@ -28,8 +28,11 @@ export default function Hero() {
                 background: 'var(--bg-color)',
             }}
         >
-            {/* Eyebrow */}
-            <p className="eyebrow animate-fade-in" style={{ marginBottom: '20px' }}>
+            {/* Eyebrow / position */}
+            <p className="animate-fade-in" style={{
+                fontSize: '1.05rem', fontWeight: 500,
+                color: 'var(--text-secondary)', marginBottom: '16px', letterSpacing: '0',
+            }}>
                 AI &amp; Machine Learning Engineer
             </p>
 
@@ -37,12 +40,12 @@ export default function Hero() {
             <h1
                 className="animate-fade-in"
                 style={{
-                    fontSize: 'clamp(3rem, 7vw, 5.5rem)',
+                    fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)',
                     fontWeight: 800,
                     letterSpacing: '-0.03em',
-                    lineHeight: 1.05,
-                    maxWidth: '900px',
-                    marginBottom: '24px',
+                    lineHeight: 1.1,
+                    maxWidth: '800px',
+                    marginBottom: '20px',
                     animationDelay: '0.05s',
                     color: 'var(--text-primary)',
                 }}

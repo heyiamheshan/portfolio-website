@@ -19,6 +19,15 @@ const projects = [
         link: 'https://github.com/heyiamheshan',
         color: '#34c759',
     },
+    {
+        tag: 'Full-Stack · Issue Tracking · Web App',
+        title: 'trackNFix',
+        desc: 'Smart Issue Tracking & Fix Management System',
+        detail: 'A full-stack web application for logging, tracking, and resolving issues in real time. Features role-based dashboards, status workflows, and analytics to streamline bug triage and resolution cycles.',
+        stack: ['React.js', 'Node.js', 'MongoDB', 'FastAPI', 'Python'],
+        link: 'https://github.com/heyiamheshan',
+        color: '#af52de',
+    },
 ];
 
 export default function Projects() {
