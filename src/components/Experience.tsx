@@ -1,3 +1,37 @@
+import { useState } from 'react';
+
+function CompanyLogo({ src, name, color }: { src?: string; name: string; color: string }) {
+    const [failed, setFailed] = useState(false);
+    const initials = name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
+
+    return (
+        <div style={{
+            width: '56px', height: '56px', borderRadius: '16px',
+            background: failed || !src ? `${color}14` : '#ffffff',
+            border: `1px solid ${failed || !src ? `${color}25` : 'var(--border-color)'}`,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            overflow: 'hidden', marginBottom: '16px', flexShrink: 0,
+            transition: 'all 0.2s',
+        }}>
+            {src && !failed ? (
+                <img
+                    src={src} alt={name}
+                    onError={() => setFailed(true)}
+                    style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+                />
+            ) : (
+                <span style={{
+                    fontSize: '1.1rem', fontWeight: 800, color,
+                    letterSpacing: '-0.03em', fontFamily: '-apple-system, sans-serif',
+                }}>
+                    {initials}
+                </span>
+            )}
+        </div>
+    );
+}
+
 const typeStyle: Record<string, { color: string; bg: string }> = {
     'Internship': { color: '#f59e0b', bg: 'rgba(245,158,11,0.1)' },
     'Part-Time':  { color: '#0071e3', bg: 'rgba(0,113,227,0.1)' },
@@ -11,6 +45,7 @@ const experiences = [
         period: '2026 – Present',
         role: 'Innovation & R&D Intern',
         company: 'Dialog Axiata PLC',
+        logo: '/companies/dialog.png',
         location: 'Sri Lanka',
         type: 'Internship',
         description: 'Bridging the gap between cutting-edge technology and real-world business solutions — building AI products, managing tech projects, and researching the next big thing in tech.',
@@ -28,6 +63,7 @@ const experiences = [
         period: '2023 – Present',
         role: 'Agriculture Finance Advisor',
         company: 'Ceylon Green Life Plantation Company',
+        logo: '/companies/ceylon-green-life.png',
         location: 'Sri Lanka',
         type: 'Part-Time',
         description: 'Providing financial advisory services while spearheading technical initiatives to digitise plantation operations.',
@@ -69,6 +105,7 @@ export default function Experience() {
                             >
                                 {/* Left */}
                                 <div style={{ flex: '0 0 220px' }}>
+                                    <CompanyLogo src={exp.logo} name={exp.company} color={ts.color} />
                                     <div style={{ fontSize: '4rem', fontWeight: 900, color: ts.color, opacity: 0.1, lineHeight: 1, fontVariantNumeric: 'tabular-nums', marginBottom: '-12px' }}>
                                         {exp.index}
                                     </div>
