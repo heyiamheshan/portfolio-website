@@ -45,7 +45,7 @@ const experiences = [
         period: '2026 – Present',
         role: 'Innovation & R&D Intern',
         company: 'Dialog Axiata PLC',
-        logo: '/companies/dialog.png',
+        logo: '/dialog_axita.jpg',
         location: 'Sri Lanka',
         type: 'Internship',
         description: 'Bridging the gap between cutting-edge technology and real-world business solutions — building AI products, managing tech projects, and researching the next big thing in tech.',
